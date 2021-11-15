@@ -1,0 +1,24 @@
+:root {
+  --brown-red: #7d6262;
+  --light-red: #ffe1e1;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav {
+  height: 10%;
+}
+
+.content {
+  height: 90%;
+}
