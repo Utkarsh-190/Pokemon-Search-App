@@ -1,4 +1,5 @@
 .nav {
+  height: 100%;
   padding: 2rem;
   background: var(--brown-red);
   display: flex;

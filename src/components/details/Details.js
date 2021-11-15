@@ -1,7 +1,7 @@
 import classes from "./Details.module.css";
 
 function Details(props) {
-  return <div className={`${props.className}`}>details</div>;
+  return <div>details</div>;
 }
 
 export default Details;
