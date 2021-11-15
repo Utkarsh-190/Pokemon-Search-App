@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import classes from "./List.module.css";
-import Details from "../details/Details";
+import ListItem from "./ListItem";
 
 function List() {
   let [pokemonList, setPokemonList] = useState([]);
@@ -36,7 +36,7 @@ function List() {
   return (
     <div className={classes.list}>
       {pokemonList.map((pokemon) => (
-        <div>{pokemon.name}</div>
+        <ListItem pokemon={pokemon} key={pokemon.id} />
       ))}
     </div>
   );

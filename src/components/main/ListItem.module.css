@@ -1,0 +1,16 @@
+.listItem {
+  height: 250px;
+  padding: 0.5rem;
+  background: var(--brown-red);
+  text-align: center;
+}
+
+.listItem > img {
+  height: 80%;
+  width: 95%;
+}
+
+.listItem > div {
+  color: white;
+  font-size: 1.2rem;
+}
