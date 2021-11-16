@@ -1,11 +1,37 @@
 .searchBox {
   width: 40%;
   height: 2.2rem;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
   padding: 0.3rem 1rem;
   background: none;
   border: 2px solid var(--brown-red);
+  /* border-bottom: none; */
   outline: none;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  /* position: absolute; */
+}
+
+.suggestionBox {
+  max-height: 338px;
+  overflow-y: hidden;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* top: 40%; */
+  /* left: 0%; */
+  /* border: 1px solid var(--brown-red); */
+}
+
+.suggestion {
+  padding: 2px 1rem;
+  border: 1px solid var(--brown-red);
+  border-top: none;
 }
