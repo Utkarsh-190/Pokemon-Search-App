@@ -5,7 +5,6 @@ import ListItem from "./ListItem";
 function List() {
   let [pokemonList, setPokemonList] = useState([]);
   useEffect(() => {
-    let list;
     const loadPokemons = async () => {
       const response = await fetch(
         "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=25"
@@ -19,18 +18,9 @@ function List() {
       setPokemonList(results);
     };
 
-    loadPokemons();
+    // loadPokemons();
 
     // https://github.com/kevinadhiguna/pokedex
-
-    // fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=25")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("data:", data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   }, []);
 
   return (

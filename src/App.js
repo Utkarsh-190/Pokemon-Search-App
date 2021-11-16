@@ -13,7 +13,7 @@ function App() {
       <div className={classes.content}>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/details/:name" element={<Details />} />
+          <Route path="/details/:id" element={<Details />} />
         </Routes>
       </div>
     </div>

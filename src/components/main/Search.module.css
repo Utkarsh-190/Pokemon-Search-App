@@ -1,5 +1,11 @@
 .searchBox {
-  width: 400px;
+  width: 40%;
+  height: 2.2rem;
   padding: 0.3rem 1rem;
+  background: none;
   border: 2px solid var(--brown-red);
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
