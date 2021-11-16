@@ -1,37 +1,53 @@
 .searchBox {
   width: 40%;
   height: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .searchInput {
-  width: 100%;
+  width: 90%;
   height: 100%;
   padding: 0.3rem 1rem;
   background: none;
   border: 2px solid var(--brown-red);
-  /* border-bottom: none; */
   outline: none;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  /* position: absolute; */
+}
+
+.searchButton {
+  height: 100%;
+  width: 10%;
+  border: 2px solid var(--brown-red);
+  border-left: none;
+  background: none;
+}
+
+.searchButton > img {
+  height: 100%;
+  width: 100%;
 }
 
 .suggestionBox {
   max-height: 338px;
-  overflow-y: hidden;
   width: 100%;
+  overflow-y: hidden;
+  position: relative;
   z-index: 100;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  position: relative;
-  /* top: 40%; */
-  /* left: 0%; */
-  /* border: 1px solid var(--brown-red); */
 }
 
 .suggestion {
   padding: 2px 1rem;
   border: 1px solid var(--brown-red);
   border-top: none;
+}
+
+.suggestion:hover {
+  background: var(--light-red-hover);
 }
