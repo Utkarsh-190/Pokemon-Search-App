@@ -14,22 +14,13 @@ function Search() {
       );
       const { results } = await response.json();
       console.log(results);
-      // sessionStorage.setItem("allPokemons", JSON.stringify(results));
       setAllPokemons(results);
     };
 
     // loadAllPokemons();
-
-    // if (sessionStorage.getItem("allPokemons")) {
-    //   // use existing list;
-    //  // sessionStorage.removeItem("allPokemons");
-    // } else {
-    //   loadAllPokemons();
-    // }
   }, []);
 
   const searchChangeHandler = (e) => {
-    // e.target.value = e.target.value.toLowerCase();
     const text = e.target.value.toLowerCase();
     let matches = [];
 
@@ -47,12 +38,10 @@ function Search() {
           matches.push(suggestion);
         }
       });
-      // console.log(matches);
       setSuggestions(matches);
     } else {
       setSuggestions([]);
     }
-
     setSearctText(text);
   };
 
@@ -66,6 +55,17 @@ function Search() {
     }, 200);
   };
 
+  const searchHandler = () => {
+    let id = 0;
+    for (let i = 0; i < allPokemons.length; i++) {
+      if (allPokemons[i].name === searchText) {
+        id = allPokemons[i].id;
+        break;
+      }
+    }
+    //  jjjkjkjkjkjj
+  };
+
   return (
     <div className={classes.searchBox}>
       <input
@@ -77,7 +77,7 @@ function Search() {
         className={classes.searchInput}
       />
 
-      <button className={classes.searchButton}>
+      <button className={classes.searchButton} onClick={searchHandler}>
         <img src={searchIcon} alt="search icon" />
       </button>
 

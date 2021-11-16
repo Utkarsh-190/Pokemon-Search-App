@@ -4,6 +4,7 @@ import ListItem from "./ListItem";
 
 function List() {
   let [pokemonList, setPokemonList] = useState([]);
+
   useEffect(() => {
     const loadPokemons = async () => {
       const response = await fetch(
