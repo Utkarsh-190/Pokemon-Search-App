@@ -7,3 +7,17 @@
   grid-auto-rows: 240px;
   grid-gap: 0.8rem;
 }
+
+.list::-webkit-scrollbar {
+  width: 7px;
+}
+
+.list::-webkit-scrollbar-track {
+  border-left: 2px solid var(--light-red);
+  background: var(--light-red-hover);
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-left: 2px solid var(--light-red);
+  background: var(--brown-red);
+}
