@@ -15,12 +15,10 @@ function List({ usePokemons }) {
         const res = data.url.split("/");
         return (data.id = res[res.length - 2]);
       });
-      console.log(results);
       setPokemonList(results);
     };
 
     loadPokemons();
-
     // https://github.com/kevinadhiguna/pokedex
   }, []);
 

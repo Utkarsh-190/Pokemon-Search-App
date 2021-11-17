@@ -16,6 +16,7 @@
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  text-transform: capitalize;
 }
 
 .searchButton {
@@ -39,11 +40,12 @@
 .suggestionBox {
   max-height: 338px;
   width: 100%;
-  overflow-y: hidden;
+  overflow-y: auto;
   position: relative;
   z-index: 100;
   cursor: pointer;
   background: var(--light-red);
+  text-transform: capitalize;
   display: flex;
   flex-direction: column;
 }
@@ -56,4 +58,12 @@
 
 .suggestion:hover {
   background: var(--light-red-hover);
+}
+
+.suggestionBox::-webkit-scrollbar {
+  width: 4px;
+}
+
+.suggestionBox::-webkit-scrollbar-thumb {
+  background: var(--brown-red);
 }

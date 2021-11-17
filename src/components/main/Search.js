@@ -16,10 +16,6 @@ function Search({ setPokemons }) {
       results.map((result, i) => {
         result.id = i + 1;
       });
-      // for (let i = 0; i < results.length; i++) {
-      //   results[i].id = i + 1;
-      // }
-      console.log(results);
       setAllPokemons(results);
     };
 
