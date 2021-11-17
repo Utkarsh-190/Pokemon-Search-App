@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import classes from "./List.module.css";
 import ListItem from "./ListItem";
 
-function List() {
-  let [pokemonList, setPokemonList] = useState([]);
+function List({ usePokemons }) {
+  let [pokemonList, setPokemonList] = usePokemons;
 
   useEffect(() => {
     const loadPokemons = async () => {
@@ -19,7 +19,7 @@ function List() {
       setPokemonList(results);
     };
 
-    // loadPokemons();
+    loadPokemons();
 
     // https://github.com/kevinadhiguna/pokedex
   }, []);

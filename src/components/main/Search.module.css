@@ -24,12 +24,16 @@
   border: 2px solid var(--brown-red);
   border-left: none;
   background: none;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background: var(--light-red-hover);
 }
 
 .searchButton > img {
   height: 100%;
   width: 100%;
-  color: var(--brown-red);
 }
 
 .suggestionBox {
@@ -39,6 +43,7 @@
   position: relative;
   z-index: 100;
   cursor: pointer;
+  background: var(--light-red);
   display: flex;
   flex-direction: column;
 }

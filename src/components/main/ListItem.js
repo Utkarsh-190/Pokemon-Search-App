@@ -7,7 +7,7 @@ function ListItem({ pokemon }) {
       <div className={classes.listItem}>
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-          alt={pokemon.name}
+          alt={`${pokemon.name} image`}
         />
         <div>{pokemon.name}</div>
       </div>

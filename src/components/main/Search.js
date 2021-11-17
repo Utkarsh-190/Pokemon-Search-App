@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import classes from "./Search.module.css";
 import searchIcon from "../../public/images/search_icon.svg";
 
-function Search() {
+function Search({ setPokemons }) {
   let [searchText, setSearctText] = useState("");
   let [allPokemons, setAllPokemons] = useState([]);
   let [suggestions, setSuggestions] = useState([]);
@@ -13,11 +13,17 @@ function Search() {
         "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1200"
       );
       const { results } = await response.json();
+      results.map((result, i) => {
+        result.id = i + 1;
+      });
+      // for (let i = 0; i < results.length; i++) {
+      //   results[i].id = i + 1;
+      // }
       console.log(results);
       setAllPokemons(results);
     };
 
-    // loadAllPokemons();
+    loadAllPokemons();
   }, []);
 
   const searchChangeHandler = (e) => {
@@ -45,39 +51,61 @@ function Search() {
     setSearctText(text);
   };
 
-  const suggestionHandler = (text) => {
-    setSearctText(text);
+  const initializePokemons = () => {
+    let pokemon = [];
+    for (let i = 0; i < 25; i++) {
+      pokemon.push(allPokemons[i]);
+    }
+    setPokemons(pokemon);
   };
 
   const inputBlurHandler = () => {
     setTimeout(() => {
       setSuggestions([]);
     }, 200);
+    if (!searchText) initializePokemons();
   };
 
-  const searchHandler = () => {
-    let id = 0;
+  const searchHandler = (text) => {
+    let pokemon, name;
+    name = text ? text : searchText;
+
+    if (!name) {
+      initializePokemons();
+      return;
+    }
+
     for (let i = 0; i < allPokemons.length; i++) {
-      if (allPokemons[i].name === searchText) {
-        id = allPokemons[i].id;
+      if (allPokemons[i].name == name) {
+        pokemon = allPokemons[i];
         break;
       }
     }
-    //  jjjkjkjkjkjj
+    if (!pokemon) {
+      alert("invalid pokemon name");
+      return;
+    }
+    setSearctText(name);
+    setPokemons([pokemon]);
   };
 
   return (
     <div className={classes.searchBox}>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search Pokemons"
         onChange={searchChangeHandler}
         onBlur={inputBlurHandler}
         value={searchText}
         className={classes.searchInput}
       />
 
-      <button className={classes.searchButton} onClick={searchHandler}>
+      <button
+        className={classes.searchButton}
+        onClick={() => {
+          searchHandler(null);
+        }}
+      >
         <img src={searchIcon} alt="search icon" />
       </button>
 
@@ -88,7 +116,7 @@ function Search() {
               key={index}
               className={classes.suggestion}
               onClick={() => {
-                suggestionHandler(suggestion.name);
+                searchHandler(suggestion.name);
               }}
             >
               {suggestion.start}
