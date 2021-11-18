@@ -3,7 +3,7 @@ import classes from "./Info.module.css";
 function Info({ data }) {
   return (
     <div className={classes.info}>
-      <div>{data.name}</div>
+      <div className={classes.name}>{data.name}</div>
       <div className={classes.properties}>
         <div>
           <span>Height: </span>
@@ -17,7 +17,7 @@ function Info({ data }) {
 
         <div>
           <span>Abilities: </span>
-          <span>
+          <span className={classes.list}>
             {data.abilities.map(({ ability }) => (
               <span>{ability.name} </span>
             ))}
@@ -26,7 +26,7 @@ function Info({ data }) {
 
         <div>
           <span>Type: </span>
-          <span>
+          <span className={classes.list}>
             {data.types.map(({ type }) => (
               <span>{type.name} </span>
             ))}

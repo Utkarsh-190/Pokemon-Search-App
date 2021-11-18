@@ -21,12 +21,14 @@ function Details(props) {
   return (
     <div className={classes.detailsPage}>
       {data && (
-        <>
+        <div>
           <div className={classes.profile}>
-            <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
-              alt={`${data.name}`}
-            />
+            <div>
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+                alt={`${data.name}`}
+              />
+            </div>
 
             <Info data={data} />
           </div>
@@ -34,7 +36,7 @@ function Details(props) {
           <div className={classes.barChart}>
             <BarChart data={data} />
           </div>
-        </>
+        </div>
       )}
     </div>
   );

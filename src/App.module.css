@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Convergence&display=swap");
+
 :root {
   --brown-red: #7d6262;
   --light-red: #ffe1e1;
@@ -9,6 +11,7 @@
 *::after {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Convergence", sans-serif;
 }
 
 .app {

@@ -1,4 +1,3 @@
-import classes from "./BarChart.module.css";
 import { Bar } from "react-chartjs-2";
 
 function BarChart({ data }) {
