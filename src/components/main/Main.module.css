@@ -21,3 +21,13 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 440px) {
+  .options {
+    height: 15%;
+    flex-direction: column;
+  }
+  .options > * {
+    margin-top: 0.2rem;
+  }
+}

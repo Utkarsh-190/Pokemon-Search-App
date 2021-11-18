@@ -19,7 +19,6 @@ function List({ usePokemons }) {
     };
 
     loadPokemons();
-    // https://github.com/kevinadhiguna/pokedex
   }, []);
 
   return (

@@ -21,3 +21,21 @@
   border-left: 2px solid var(--light-red);
   background: var(--brown-red);
 }
+
+@media screen and (max-width: 850px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
