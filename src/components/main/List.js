@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import classes from "./List.module.css";
 import ListItem from "./ListItem";
 
