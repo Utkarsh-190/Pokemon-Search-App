@@ -8,7 +8,7 @@ function List({ usePokemons }) {
   useEffect(() => {
     const loadPokemons = async () => {
       const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=25"
+        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24"
       );
       const { results } = await response.json();
       results.map((data) => {
@@ -22,10 +22,13 @@ function List({ usePokemons }) {
   }, []);
 
   return (
-    <div className={classes.list}>
-      {pokemonList.map((pokemon) => (
-        <ListItem pokemon={pokemon} key={pokemon.id} />
-      ))}
+    <div className={classes.listPage}>
+      <div className={classes.list}>
+        {pokemonList.map((pokemon) => (
+          <ListItem pokemon={pokemon} key={pokemon.id} />
+        ))}
+      </div>
+      {/* <button>Show more pokemons</button> */}
     </div>
   );
 }
