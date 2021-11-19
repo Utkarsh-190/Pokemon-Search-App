@@ -16,8 +16,8 @@
   grid-gap: 0.8rem;
 }
 
-.list > button {
-}
+/* .list > button {
+} */
 
 .list::-webkit-scrollbar {
   width: 7px;
