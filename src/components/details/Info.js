@@ -3,7 +3,7 @@ import classes from "./Info.module.css";
 function Info({ data }) {
   return (
     <div className={classes.info}>
-      <div className={classes.name}>{data.name}</div>
+      <h1 className={classes.name}>{data.name}</h1>
       <div className={classes.properties}>
         <div>
           <span>Height: </span>

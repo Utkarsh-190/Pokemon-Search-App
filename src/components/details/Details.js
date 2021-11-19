@@ -13,7 +13,6 @@ function Details(props) {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const result = await response.json();
       setData(result);
-      console.dir(result);
     };
     loadPokemonData();
   }, []);

@@ -26,12 +26,15 @@
   align-items: center;
 }
 
-.profile > div:first-child {
+.profile > div {
   width: 30%;
   height: 100%;
+  text-align: center;
+}
+
+.profile > div:first-child {
   background: var(--light-red-hover);
   border-radius: 50%;
-  text-align: center;
 }
 
 .profile > div > img {

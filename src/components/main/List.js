@@ -5,7 +5,7 @@ import ListItem from "./ListItem";
 function List({ usePokemons }) {
   const [pokemonList, setPokemonList] = usePokemons;
   const [curURL, setCurURL] = useState(
-    "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24"
+    "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=25"
   );
   const [nextURL, setNextURL] = useState("");
   const [loading, setLoading] = useState(true);
@@ -14,12 +14,12 @@ function List({ usePokemons }) {
     const loadPokemons = async () => {
       const response = await fetch(curURL);
       const { results, next } = await response.json();
-      setNextURL(next);
       results.map((data) => {
         const res = data.url.split("/");
         return (data.id = res[res.length - 2]);
       });
 
+      setNextURL(next);
       setPokemonList((prevState) => {
         return [...prevState, ...results];
       });
