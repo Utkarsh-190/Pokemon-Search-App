@@ -1,34 +1,51 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import classes from "./List.module.css";
 import ListItem from "./ListItem";
 
 function List({ usePokemons }) {
-  let [pokemonList, setPokemonList] = usePokemons;
+  const [pokemonList, setPokemonList] = usePokemons;
+  const [curURL, setCurURL] = useState(
+    "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24"
+  );
+  const [nextURL, setNextURL] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPokemons = async () => {
-      const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24"
-      );
-      const { results } = await response.json();
+      const response = await fetch(curURL);
+      const { results, next } = await response.json();
+      setNextURL(next);
       results.map((data) => {
         const res = data.url.split("/");
         return (data.id = res[res.length - 2]);
       });
-      setPokemonList(results);
+
+      setPokemonList((prevState) => {
+        return [...prevState, ...results];
+      });
+      setLoading(false);
     };
 
     loadPokemons();
-  }, []);
+  }, [curURL]);
+
+  const scrollEndHandler = (e) => {
+    const bottom =
+      e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    if (bottom) {
+      setLoading(true);
+      setCurURL(nextURL);
+    }
+  };
 
   return (
     <div className={classes.listPage}>
-      <div className={classes.list}>
+      <div className={classes.list} onScroll={scrollEndHandler}>
         {pokemonList.map((pokemon) => (
           <ListItem pokemon={pokemon} key={pokemon.id} />
         ))}
       </div>
-      {/* <button>Show more pokemons</button> */}
+      {loading && <div>Loading...</div>}
     </div>
   );
 }

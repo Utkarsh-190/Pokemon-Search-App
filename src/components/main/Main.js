@@ -5,7 +5,7 @@ import Filter from "./Filter";
 import List from "./List";
 
 function Main(props) {
-  let [pokemonList, setPokemonList] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
   const listChangeHandler = (list) => {
     setPokemonList(list);

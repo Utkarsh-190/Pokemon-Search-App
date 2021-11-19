@@ -19,7 +19,7 @@ function Info({ data }) {
           <span>Abilities: </span>
           <span className={classes.list}>
             {data.abilities.map(({ ability }) => (
-              <span>{ability.name} </span>
+              <span key={ability.name}>{ability.name} </span>
             ))}
           </span>
         </div>
@@ -28,7 +28,7 @@ function Info({ data }) {
           <span>Type: </span>
           <span className={classes.list}>
             {data.types.map(({ type }) => (
-              <span>{type.name} </span>
+              <span key={type.name}>{type.name} </span>
             ))}
           </span>
         </div>

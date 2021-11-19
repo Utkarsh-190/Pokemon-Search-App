@@ -3,7 +3,7 @@ import classes from "./Filter.module.css";
 import downArrow from "../../public/images/down_arrow.png";
 
 function Filter({ setPokemons }) {
-  let [showTypes, setShowTypes] = useState(false);
+  const [showTypes, setShowTypes] = useState(false);
   const types = [
     "Normal",
     "Fire",

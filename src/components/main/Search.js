@@ -3,9 +3,9 @@ import classes from "./Search.module.css";
 import searchIcon from "../../public/images/search_icon.svg";
 
 function Search({ setPokemons }) {
-  let [searchText, setSearctText] = useState("");
-  let [allPokemons, setAllPokemons] = useState([]);
-  let [suggestions, setSuggestions] = useState([]);
+  const [searchText, setSearctText] = useState("");
+  const [allPokemons, setAllPokemons] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
     const loadAllPokemons = async () => {
@@ -13,8 +13,9 @@ function Search({ setPokemons }) {
         "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1200"
       );
       const { results } = await response.json();
-      results.map((result, i) => {
-        result.id = i + 1;
+      results.map((data) => {
+        const res = data.url.split("/");
+        data.id = res[res.length - 2];
       });
       setAllPokemons(results);
     };
