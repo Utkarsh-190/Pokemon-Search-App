@@ -4,16 +4,39 @@ import { useParams } from "react-router";
 import BarChart from "./BarChart";
 import Info from "./Info";
 
-function Details(props) {
-  let { id } = useParams();
-  let [data, setData] = useState(null);
+function Details() {
+  const { id } = useParams(); //  pokemon id from url
+  const [data, setData] = useState(null); // data of selected pokemon
 
   useEffect(() => {
+    let cache = JSON.parse(sessionStorage.getItem("cache"));
+    if (cache) {
+      let found = false;
+      cache.map((pokemon, index) => {
+        if (pokemon.id == Number(id)) {
+          found = true;
+          cache.unshift(cache.splice(index, 1)[0]);
+          sessionStorage.setItem("cache", JSON.stringify(cache));
+          setData(pokemon);
+        }
+      });
+      if (found) return;
+    }
+
     const loadPokemonData = async () => {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const result = await response.json();
+
+      if (cache) {
+        cache.unshift(result);
+        if (cache.length > 5) cache.pop();
+      } else {
+        cache = [result];
+      }
+      sessionStorage.setItem("cache", JSON.stringify(cache));
       setData(result);
     };
+
     loadPokemonData();
   }, []);
 
