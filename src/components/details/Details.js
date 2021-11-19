@@ -1,6 +1,7 @@
 import classes from "./Details.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import BarChart from "./BarChart";
 import Info from "./Info";
 
@@ -60,6 +61,10 @@ function Details() {
           </div>
         </div>
       )}
+
+      <Link to="/Pokemon-Search-App/">
+        <button>Back</button>
+      </Link>
     </div>
   );
 }
