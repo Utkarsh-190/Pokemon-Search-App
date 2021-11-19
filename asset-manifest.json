@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Pokemon-Search-App/static/css/main.93897e1f.chunk.css",
+    "main.js": "/Pokemon-Search-App/static/js/main.535f3a6d.chunk.js",
+    "main.js.map": "/Pokemon-Search-App/static/js/main.535f3a6d.chunk.js.map",
+    "runtime-main.js": "/Pokemon-Search-App/static/js/runtime-main.17932e1f.js",
+    "runtime-main.js.map": "/Pokemon-Search-App/static/js/runtime-main.17932e1f.js.map",
+    "static/js/2.92cfbbbb.chunk.js": "/Pokemon-Search-App/static/js/2.92cfbbbb.chunk.js",
+    "static/js/2.92cfbbbb.chunk.js.map": "/Pokemon-Search-App/static/js/2.92cfbbbb.chunk.js.map",
+    "index.html": "/Pokemon-Search-App/index.html",
+    "static/css/main.93897e1f.chunk.css.map": "/Pokemon-Search-App/static/css/main.93897e1f.chunk.css.map",
+    "static/js/2.92cfbbbb.chunk.js.LICENSE.txt": "/Pokemon-Search-App/static/js/2.92cfbbbb.chunk.js.LICENSE.txt",
+    "static/media/search_icon.e5197f97.svg": "/Pokemon-Search-App/static/media/search_icon.e5197f97.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17932e1f.js",
+    "static/js/2.92cfbbbb.chunk.js",
+    "static/css/main.93897e1f.chunk.css",
+    "static/js/main.535f3a6d.chunk.js"
+  ]
+}
