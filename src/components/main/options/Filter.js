@@ -4,7 +4,9 @@ import downArrow from "../../../public/images/down_arrow.png";
 
 function Filter({ setPokemons }) {
   const [showTypes, setShowTypes] = useState(false);
+  const [curType, setCurType] = useState("Filter");
   const types = [
+    "No filter",
     "Normal",
     "Fire",
     "Water",
@@ -28,14 +30,27 @@ function Filter({ setPokemons }) {
   const loadPokemons = async (type) => {
     filterClicked();
     const typeName = type.toLowerCase();
-    const response = await fetch(`https://pokeapi.co/api/v2/type/${typeName}/`);
-    const { pokemon } = await response.json();
-    const list = [];
-    pokemon.map((data) => {
-      const res = data.pokemon.url.split("/");
-      data.pokemon.id = res[res.length - 2];
-      list.push(data.pokemon);
-    });
+    let url = `https://pokeapi.co/api/v2/type/${typeName}/`;
+    let list;
+    if (type === "No filter") {
+      url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=25";
+      const response = await fetch(url);
+      const { results } = await response.json();
+      list = results.map((data) => {
+        const res = data.url.split("/");
+        data.id = res[res.length - 2];
+        return data;
+      });
+      setCurType("Filter");
+    } else {
+      const response = await fetch(url);
+      const { pokemon } = await response.json();
+      list = pokemon.map((data) => {
+        const res = data.pokemon.url.split("/");
+        data.pokemon.id = res[res.length - 2];
+        return data.pokemon;
+      });
+    }
     setPokemons(list);
   };
 
@@ -46,7 +61,7 @@ function Filter({ setPokemons }) {
   return (
     <div className={classes.filterBox}>
       <div className={classes.filter} onClick={filterClicked}>
-        <div>Filter</div>
+        <div>{curType}</div>
         <img src={downArrow} alt="drop down arrow" />
       </div>
       {showTypes && (
@@ -54,7 +69,8 @@ function Filter({ setPokemons }) {
           {types.map((type, index) => (
             <div
               key={index}
-              onClick={() => {
+              onClick={(e) => {
+                setCurType(type);
                 loadPokemons(type);
               }}
             >
