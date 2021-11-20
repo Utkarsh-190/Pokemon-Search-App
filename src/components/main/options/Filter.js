@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./Filter.module.css";
-import downArrow from "../../public/images/down_arrow.png";
+import downArrow from "../../../public/images/down_arrow.png";
 
 function Filter({ setPokemons }) {
   const [showTypes, setShowTypes] = useState(false);

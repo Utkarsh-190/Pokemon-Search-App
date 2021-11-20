@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ListItem({ pokemon }) {
   return (
     <Link
-      to={`/Pokemon-Search-App/details/${pokemon.id}`}
+      to={`/pokemon-search-app/details/${pokemon.id}`}
       style={{ textDecoration: "none" }}
     >
       <div className={classes.listItem}>

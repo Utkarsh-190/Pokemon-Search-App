@@ -1,6 +1,6 @@
 import classes from "./Navbar.module.css";
 
-function Navbar(props) {
+function Navbar() {
   return (
     <div className={classes.nav}>
       <div className={classes.navHeading}>Pokemon Search App</div>

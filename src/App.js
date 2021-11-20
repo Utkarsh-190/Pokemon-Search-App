@@ -12,8 +12,8 @@ function App() {
       </div>
       <div className={classes.content}>
         <Routes>
-          <Route path="/Pokemon-Search-App/" element={<Main />} />
-          <Route path="/Pokemon-Search-App/details/:id" element={<Details />} />
+          <Route path="/pokemon-search-app/" element={<Main />} />
+          <Route path="/pokemon-search-app/details/:id" element={<Details />} />
         </Routes>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import classes from "./Search.module.css";
-import searchIcon from "../../public/images/search_icon.svg";
+import searchIcon from "../../../public/images/search_icon.svg";
 
 function Search({ setPokemons }) {
   const [searchText, setSearctText] = useState("");

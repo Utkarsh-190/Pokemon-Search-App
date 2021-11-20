@@ -1,10 +1,10 @@
 import { useState } from "react";
 import classes from "./Main.module.css";
-import Search from "./Search";
-import Filter from "./Filter";
-import List from "./List";
+import Search from "./options/Search";
+import Filter from "./options/Filter";
+import List from "./list/List";
 
-function Main(props) {
+function Main() {
   const [pokemonList, setPokemonList] = useState([]);
 
   const listChangeHandler = (list) => {

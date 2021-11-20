@@ -62,7 +62,7 @@ function Details() {
         </div>
       )}
 
-      <Link to="/Pokemon-Search-App/">
+      <Link to="/pokemon-search-app/">
         <button>Back</button>
       </Link>
     </div>
